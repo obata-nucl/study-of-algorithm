@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-double linear_search(vector<double,double> sample,double target){
+double linear_search(vector<double> sample,double target){
     for(int i=0;i<sample.size();i++){
         if(sample[i] == target){
             return i;
