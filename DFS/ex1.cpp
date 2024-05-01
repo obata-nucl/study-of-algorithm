@@ -1,47 +1,42 @@
-//Atcoder Typical Contest 001-A
 #include<bits/stdc++.h>
 using namespace std;
 
 
-//unit vector
 const int dx[4] = {1,0,-1,0};
 const int dy[4] = {0,1,0,-1};
 
-int h,w;
+int H,W;
 vector<string> field;
 
-bool seen[510][510];    //seen[i][j] : i行j列のマスを訪問済みかどうか
-
-void dfs(int h, int w){
+bool seen[510][510];
+void dfs(int h,int w){
     seen[h][w] = true;
 
-    //4方向探索
-    for(int dir = 0; dir < 4; ++dir){
+    for(int dir=0; dir < 4; ++dir){
         int nh = h + dx[dir];
         int nw = w + dy[dir];
 
-        if(nh < 0 || nh >= h || nw < 0 || nw >= w) continue;
+        if(nh < 0 || nh >= H || nw < 0 || nw >= W) continue;
         if(field[nh][nw] == '#') continue;
+        if(seen[nh][nw] == true) continue;
 
-        if(seen[nh][nw]) continue;
-
-        dfs(nh, nw);
+        dfs(nh,nw);
     }
 }
 
 int main(){
-    cin >> h >> w;
-    field.resize(h);
+    cin >> H >> W;
+    field.resize(H);
 
-    for(int i=0;i<h;++i){
+    for(int i=0; i<H ; ++i){
         cin >> field[i];
     }
 
-    int sh=0, sw=0, gh=0, gw=0;
-    for(int i=0;i<h;++i){
-        for(int j=0;j<w;++j){
-            if(field[i][j] == 's') sh = i, sw = j;
-            if(field[i][j] == 'g') gh = i, gw = j;
+    int sh,sw,gh,gw;
+    for(int h=0;h<H;++h){
+        for(int w=0;w<W;++w){
+            if(field[h][w] == 's') sh = h, sw = w;
+            if(field[h][w] == 'g') gh = h, gw = w;
         }
     }
 
@@ -51,9 +46,5 @@ int main(){
     if(seen[gh][gw]){
         cout << "Yes" << endl;
     }
-    else{
-        cout << "No" << endl;
-    }
-
-    return 0;
+    else cout << "No" << endl;
 }
