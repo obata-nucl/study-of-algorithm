@@ -1,5 +1,6 @@
 #ifndef LINEAR_SEARCH_H
 #define LINEAR_SEARCH_H
+#endif
 
 #include<bits/stdc++.h>
 using namespace std;

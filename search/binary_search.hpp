@@ -1,5 +1,6 @@
 #ifndef BINARY_SEARCH_H
 #define BINARY_SEARCH_H
+#endif
 #include<bits/stdc++.h>
 using namespace std;
 
